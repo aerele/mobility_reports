@@ -225,15 +225,15 @@ def get_data(filters):
 		filters.project = [filters.project]
 
 	set_gl_entries_by_account(
-		filters.company,
-		filters.from_date,
-		filters.to_date,
-		min_lft,
-		max_rgt,
-		filters,
-		gl_entries_by_account,
-		ignore_closing_entries=not flt(filters.with_period_closing_entry),
-	)
+                filters.company,
+                filters.from_date,
+                filters.to_date,
+                filters,
+                gl_entries_by_account,
+                min_lft,
+                max_rgt,
+                ignore_closing_entries=not flt(filters.with_period_closing_entry),
+        )
 
 	if filters.get("show_net_values_in_party_account"):
 		account_type_map = frappe._dict(
